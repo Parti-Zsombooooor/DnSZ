@@ -33,6 +33,7 @@
             this.AjtoJobb = new System.Windows.Forms.PictureBox();
             this.AjtoBal = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoBal)).BeginInit();
@@ -41,12 +42,11 @@
             // 
             // listBox1
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 9;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(265, 256);
+            this.listBox1.Size = new System.Drawing.Size(761, 563);
             this.listBox1.TabIndex = 0;
             // 
             // AjtoFel
@@ -89,17 +89,28 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(819, 221);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(190, 79);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.AjtoFel);
             this.Controls.Add(this.AjtoJobb);
             this.Controls.Add(this.AjtoBal);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.listBox1);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Form1";
@@ -119,6 +130,7 @@
         private System.Windows.Forms.PictureBox AjtoBal;
         private System.Windows.Forms.PictureBox AjtoJobb;
         private System.Windows.Forms.PictureBox AjtoFel;
+        private System.Windows.Forms.Button button1;
     }
 }
 

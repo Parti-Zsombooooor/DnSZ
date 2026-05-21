@@ -12,7 +12,7 @@ namespace DnSZ
 {
     public partial class Form1 : Form
     {
-        int[,] matrix = new int[25, 25];
+        int[,] matrix = new int[50, 50];
 
         public Form1()
         {
@@ -22,44 +22,77 @@ namespace DnSZ
             MatrixMegjelenitese();
         }
 
-        private void SzobaGeneralasa()
-        {
-            int szobaSzam = 0;
-            int jelelegiHelyX = 12;
-            int jelelegiHelyY = 24;
-            matrix[12, 24] = 1;
+         private void SzobaGeneralasa()
+         {
+             int szobaSzam = 0;
+             int jelelegiHelyX = 25;
+             int jelelegiHelyY = 49;
+             matrix[49, 25] = 1;
 
-            while(szobaSzam <= 6)
-            {
-                Random rd = new Random();
-                int irany = rd.Next(0, 3);
-                if(irany == 1)
-                {
+            Random rd = new Random();
+            while (szobaSzam <= 20)
+             {
+               
+                 int irany = rd.Next(0, 4);
+                 if(irany == 1)
+                 {
+                
+                    if (matrix[jelelegiHelyY, jelelegiHelyX - 1] == 0)
+                     {
+                         szobaSzam++;
+                         matrix[jelelegiHelyY, jelelegiHelyX - 1] = 1;
+                         jelelegiHelyX--;
+                     }
+                 }
+                 else if(irany == 2)
+                 {
+    ;
+                     if (matrix[jelelegiHelyY - 1, jelelegiHelyX] == 0)
+                     {
+                         szobaSzam++;
+                         matrix[jelelegiHelyY-1, jelelegiHelyX] = 1;
+                         jelelegiHelyY--;
+                     }
+                 }
+                 else if (irany == 3)
+                 {
+        
+                    if (matrix[jelelegiHelyY, jelelegiHelyX + 1] == 0)
+                     {
+                         szobaSzam++;
+                         matrix[jelelegiHelyY, jelelegiHelyX + 1] = 1;
+                         jelelegiHelyX++;
+                     }
+                 }
 
-                }
-                else if(irany == 2)
-                {
+             }
 
-                }
-                else if (irany == 3)
-                {
-
-                }
-
-            }
-            
-        }
+         }
 
         private void MatrixMegjelenitese()
         {
             listBox1.Items.Clear();
-            for (int sor = 0; sor < 25; sor++)
+            for (int sor = 0; sor < 50; sor++)
             {
                 string aktualisSor = "";
-                for (int oszlop = 0; oszlop < 25; oszlop++)
+                for (int oszlop = 0; oszlop < 50; oszlop++)
                 {
-                    aktualisSor += matrix[sor, oszlop].ToString().PadLeft(4);
+               
+                    if (matrix[sor, oszlop] == 0)
+                    {
+                        aktualisSor += "□ ";
+                    }
+                    else if (matrix[sor, oszlop] == 1)
+                    {
+                        aktualisSor += "■ ";
+                    }
+                    else
+                    {
+         
+                        aktualisSor += matrix[sor, oszlop].ToString() + " ";
+                    }
                 }
+
                 listBox1.Items.Add(aktualisSor);
             }
         }
@@ -67,15 +100,22 @@ namespace DnSZ
         private void MatrixFeltoltese()
         {
             
-            for (int sor = 0; sor < 26; sor++)
+            for (int sor = 0; sor < 50; sor++)
             {
-                for (int oszlop = 0; oszlop < 26; oszlop++)
+                for (int oszlop = 0; oszlop < 50; oszlop++)
                 {
                     matrix[sor, oszlop] = 0;
                 }
             }
 
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MatrixFeltoltese();
+            SzobaGeneralasa();
+            MatrixMegjelenitese();
         }
     }
 }
