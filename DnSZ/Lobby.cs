@@ -24,5 +24,13 @@ namespace DnSZ
             jatekstart.ShowDialog();
             this.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Fight jatekstart = new Fight();
+            this.Hide();
+            jatekstart.ShowDialog();
+            this.Show();
+        }
     }
 }
