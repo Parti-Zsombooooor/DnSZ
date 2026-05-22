@@ -42,18 +42,20 @@
             this.ellenfelLBOX = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.hpCSIKENEMY = new System.Windows.Forms.ProgressBar();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.PlayerPBOX = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.EnemyPBOX = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerPBOX)).BeginInit();
+            this.PlayerPBOX = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyPBOX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPBOX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // hpCSIK
@@ -135,7 +137,7 @@
             // 
             this.enemyNEV.AutoSize = true;
             this.enemyNEV.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.enemyNEV.Location = new System.Drawing.Point(522, 312);
+            this.enemyNEV.Location = new System.Drawing.Point(518, 349);
             this.enemyNEV.Name = "enemyNEV";
             this.enemyNEV.Size = new System.Drawing.Size(36, 24);
             this.enemyNEV.TabIndex = 12;
@@ -176,24 +178,15 @@
             this.hpCSIKENEMY.Size = new System.Drawing.Size(360, 34);
             this.hpCSIKENEMY.TabIndex = 9;
             // 
-            // pictureBox4
+            // pictureBox5
             // 
-            this.pictureBox4.Image = global::DnSZ.Properties.Resources.kepbar;
-            this.pictureBox4.Location = new System.Drawing.Point(30, 272);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(390, 366);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 18;
-            this.pictureBox4.TabStop = false;
-            // 
-            // PlayerPBOX
-            // 
-            this.PlayerPBOX.Location = new System.Drawing.Point(30, 302);
-            this.PlayerPBOX.Name = "PlayerPBOX";
-            this.PlayerPBOX.Size = new System.Drawing.Size(360, 336);
-            this.PlayerPBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PlayerPBOX.TabIndex = 1;
-            this.PlayerPBOX.TabStop = false;
+            this.pictureBox5.Image = global::DnSZ.Properties.Resources.kepbarle;
+            this.pictureBox5.Location = new System.Drawing.Point(513, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(390, 366);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 19;
+            this.pictureBox5.TabStop = false;
             // 
             // EnemyPBOX
             // 
@@ -231,6 +224,25 @@
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
+            // PlayerPBOX
+            // 
+            this.PlayerPBOX.Location = new System.Drawing.Point(30, 302);
+            this.PlayerPBOX.Name = "PlayerPBOX";
+            this.PlayerPBOX.Size = new System.Drawing.Size(360, 336);
+            this.PlayerPBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PlayerPBOX.TabIndex = 1;
+            this.PlayerPBOX.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DnSZ.Properties.Resources.kepbar;
+            this.pictureBox4.Location = new System.Drawing.Point(30, 272);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(390, 366);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 18;
+            this.pictureBox4.TabStop = false;
+            // 
             // Fight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,16 +266,18 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.PlayerPBOX);
             this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox5);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Fight";
             this.Text = "Fight";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayerPBOX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyPBOX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPBOX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +304,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ProgressBar hpCSIKENEMY;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

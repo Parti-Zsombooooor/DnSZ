@@ -146,5 +146,8 @@
   <ItemGroup>
     <None Include="Properties\kepbar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\kepbarle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

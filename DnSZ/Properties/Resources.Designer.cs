@@ -103,6 +103,16 @@ namespace DnSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kepbarle {
+            get {
+                object obj = ResourceManager.GetObject("kepbarle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mainb {
             get {
                 object obj = ResourceManager.GetObject("Mainb", resourceCulture);
