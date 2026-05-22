@@ -46,7 +46,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 12);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(761, 563);
+            this.listBox1.Size = new System.Drawing.Size(186, 173);
             this.listBox1.TabIndex = 0;
             // 
             // AjtoFel
@@ -91,9 +91,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(819, 221);
+            this.button1.Location = new System.Drawing.Point(53, 191);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 79);
+            this.button1.Size = new System.Drawing.Size(107, 37);
             this.button1.TabIndex = 5;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
