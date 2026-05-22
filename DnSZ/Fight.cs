@@ -149,6 +149,7 @@ namespace DnSZ
                         int punch = 4;
                         int utes = DmgSzamlalo(punch);
                         Enemy[0].HP -= utes;
+                        ellenfelLBOX.Visible = false;
                         Kiiras();
                         EllenfelTamad();
                     }
@@ -161,6 +162,7 @@ namespace DnSZ
                         int punch = 6;
                         int utes = DmgSzamlalo(punch);
                         Enemy[0].HP -= utes;
+                        ellenfelLBOX.Visible = false;
                         Kiiras();
                         EllenfelTamad();
                     }
@@ -173,6 +175,7 @@ namespace DnSZ
                         int punch = 1;
                         int utes = DmgSzamlalo(punch);
                         Enemy[0].HP -= utes;
+                        ellenfelLBOX.Visible = false;
                         Kiiras();
                         EllenfelTamad();
                     }
@@ -252,7 +255,6 @@ namespace DnSZ
                 Player[0].Mana += 2;
                 Kiiras();
                 ellenfelLBOX.Visible = true;
-                timer1.Start();
                 await Task.Delay(2000);
                 if (Player[0].HP <= 0)
                 {
@@ -304,10 +306,6 @@ namespace DnSZ
             MenuLBOX.SelectedIndex = 0;
             MenuLBOX.Enabled = true;
             MenuLBOX.Focus();
-        }
-        private void timer1_Tick_1(object sender, EventArgs e)
-        {
-            ellenfelLBOX.Visible = false;
         }
     }
 }

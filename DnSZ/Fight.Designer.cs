@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.hpCSIK = new System.Windows.Forms.ProgressBar();
             this.manaCSIK = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@
             this.MenuLBOX = new System.Windows.Forms.ListBox();
             this.hpCSIKSZENEMY = new System.Windows.Forms.Label();
             this.enemyNEV = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ellenfelLBOX = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.hpCSIKENEMY = new System.Windows.Forms.ProgressBar();
@@ -142,11 +140,6 @@
             this.enemyNEV.Size = new System.Drawing.Size(36, 24);
             this.enemyNEV.TabIndex = 12;
             this.enemyNEV.Text = "HP";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // ellenfelLBOX
             // 
@@ -296,7 +289,6 @@
         private System.Windows.Forms.ListBox MenuLBOX;
         private System.Windows.Forms.Label hpCSIKSZENEMY;
         private System.Windows.Forms.Label enemyNEV;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListBox ellenfelLBOX;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
