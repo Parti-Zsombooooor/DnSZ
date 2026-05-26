@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.PL = new System.Windows.Forms.Panel();
             this.AjtoFel = new System.Windows.Forms.PictureBox();
             this.AjtoJobb = new System.Windows.Forms.PictureBox();
             this.AjtoBal = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BorderBal = new System.Windows.Forms.Panel();
+            this.BorderJobb = new System.Windows.Forms.Panel();
+            this.BorderFel = new System.Windows.Forms.Panel();
+            this.BorderLe = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoBal)).BeginInit();
@@ -48,6 +55,25 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(186, 173);
             this.listBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(53, 191);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 37);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // PL
+            // 
+            this.PL.BackgroundImage = global::DnSZ.Properties.Resources.AjtoPlaceHolder;
+            this.PL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PL.Location = new System.Drawing.Point(493, 268);
+            this.PL.Name = "PL";
+            this.PL.Size = new System.Drawing.Size(32, 32);
+            this.PL.TabIndex = 6;
             // 
             // AjtoFel
             // 
@@ -89,15 +115,42 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // BorderBal
             // 
-            this.button1.Location = new System.Drawing.Point(53, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 37);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BorderBal.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderBal.Location = new System.Drawing.Point(181, 27);
+            this.BorderBal.Name = "BorderBal";
+            this.BorderBal.Size = new System.Drawing.Size(131, 602);
+            this.BorderBal.TabIndex = 7;
+            // 
+            // BorderJobb
+            // 
+            this.BorderJobb.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderJobb.Location = new System.Drawing.Point(817, 27);
+            this.BorderJobb.Name = "BorderJobb";
+            this.BorderJobb.Size = new System.Drawing.Size(131, 602);
+            this.BorderJobb.TabIndex = 8;
+            // 
+            // BorderFel
+            // 
+            this.BorderFel.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderFel.Location = new System.Drawing.Point(179, 10);
+            this.BorderFel.Name = "BorderFel";
+            this.BorderFel.Size = new System.Drawing.Size(768, 66);
+            this.BorderFel.TabIndex = 9;
+            // 
+            // BorderLe
+            // 
+            this.BorderLe.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderLe.Location = new System.Drawing.Point(166, 580);
+            this.BorderLe.Name = "BorderLe";
+            this.BorderLe.Size = new System.Drawing.Size(768, 56);
+            this.BorderLe.TabIndex = 10;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -105,16 +158,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.PL);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AjtoFel);
             this.Controls.Add(this.AjtoJobb);
             this.Controls.Add(this.AjtoBal);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.BorderLe);
+            this.Controls.Add(this.BorderFel);
+            this.Controls.Add(this.BorderJobb);
+            this.Controls.Add(this.BorderBal);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Form1";
             this.Text = "Game";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoBal)).EndInit();
@@ -131,6 +190,12 @@
         private System.Windows.Forms.PictureBox AjtoJobb;
         private System.Windows.Forms.PictureBox AjtoFel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel PL;
+        private System.Windows.Forms.Panel BorderBal;
+        private System.Windows.Forms.Panel BorderJobb;
+        private System.Windows.Forms.Panel BorderFel;
+        private System.Windows.Forms.Panel BorderLe;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
