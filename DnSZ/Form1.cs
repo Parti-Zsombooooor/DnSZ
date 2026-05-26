@@ -13,13 +13,18 @@ namespace DnSZ
     public partial class Form1 : Form
     {
         int[,] matrix = new int[50, 50];
-
+        Boolean MehetFel = true;
+        Boolean MehetLe = true;
+        Boolean MehetJobb = true;
+        Boolean MehetBal = true;
         public Form1()
         {
             InitializeComponent();
             MatrixFeltoltese();
             SzobaGeneralasa();
             MatrixMegjelenitese();
+            this.KeyPreview = true;
+            timer1.Start();
         }
 
          private void SzobaGeneralasa()
@@ -199,6 +204,64 @@ namespace DnSZ
             MatrixFeltoltese();
             SzobaGeneralasa();
             MatrixMegjelenitese();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.W && MehetFel){
+                PL.Location = new Point(PL.Location.X, PL.Location.Y -10);
+            }
+            if (e.KeyCode == Keys.A && MehetBal)
+            {
+                PL.Location = new Point(PL.Location.X - 10, PL.Location.Y);
+            }
+            if (e.KeyCode == Keys.S && MehetLe)
+            {
+                PL.Location = new Point(PL.Location.X, PL.Location.Y + 10);
+            }
+            if (e.KeyCode == Keys.D && MehetJobb)
+            {
+                PL.Location = new Point(PL.Location.X + 10, PL.Location.Y);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (PL.Bounds.IntersectsWith(BorderFel.Bounds))
+            {
+                MehetFel = false;
+            }
+            else
+            {
+                MehetFel = true;
+            }
+
+            if (PL.Bounds.IntersectsWith(BorderLe.Bounds))
+            {
+                MehetLe = false;
+            }
+            else
+            {
+                MehetLe = true;
+            }
+
+            if (PL.Bounds.IntersectsWith(BorderBal.Bounds))
+            {
+                MehetBal = false;
+            }
+            else
+            {
+                MehetBal = true;
+            }
+
+            if (PL.Bounds.IntersectsWith(BorderJobb.Bounds))
+            {
+                MehetJobb = false;
+            }
+            else
+            {
+                MehetJobb = true;
+            }
         }
     }
 }
