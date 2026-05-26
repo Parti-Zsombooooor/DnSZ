@@ -24,7 +24,7 @@ namespace DnSZ
         public Fight()
         {
             InitializeComponent();
-            Kezdes();
+            Kezdes();   
         }
 
         private void Kezdes()
@@ -258,6 +258,7 @@ namespace DnSZ
                 await Task.Delay(2000);
                 if (Player[0].HP <= 0)
                 {
+                    FileIO.Mentes(Player, MaxHp, MaxMana);
                     MessageBox.Show("Vesztettél!");
                     this.Close();
                 }
