@@ -17,6 +17,11 @@ namespace DnSZ
         Boolean MehetLe = true;
         Boolean MehetJobb = true;
         Boolean MehetBal = true;
+
+        Boolean ereintiAjtot = false;
+
+        int JelelegiHelyXPlayer = 25;
+        int JelelegiHelyYPlayer = 48;
         public Form1()
         {
             InitializeComponent();
@@ -24,10 +29,56 @@ namespace DnSZ
             SzobaGeneralasa();
             MatrixMegjelenitese();
             this.KeyPreview = true;
+           
             timer1.Start();
+            SzobaMegjelenitese();
         }
 
-         private void SzobaGeneralasa()
+        private void SzobaMegjelenitese()
+        {
+            int y = JelelegiHelyYPlayer;
+            int x = JelelegiHelyXPlayer;
+
+
+            int erintettSzobak = 0;
+            if (matrix[y, x - 1] == 1)
+            {
+                AjtoBal.Visible = true;
+            }
+            else
+            {
+                AjtoBal.Visible = false;
+            }
+
+            if (matrix[y, x + 1] == 1)
+            {
+                AjtoJobb.Visible = true;
+            }
+            else
+            {
+                AjtoJobb.Visible = false;
+            }
+
+            if (matrix[y + 1, x] == 1)
+            {
+                AjtoLe.Visible = true;
+            }
+            else
+            {
+                AjtoLe.Visible = false;
+            }
+
+            if (matrix[y - 1, x] == 1)
+            {
+                AjtoFel.Visible = true;
+            }
+            else
+            {
+                AjtoFel.Visible = false;
+            }
+        }
+
+        private void SzobaGeneralasa()
          {
              int szobaSzam = 0;
              int jelelegiHelyX = 25;
@@ -204,6 +255,7 @@ namespace DnSZ
             MatrixFeltoltese();
             SzobaGeneralasa();
             MatrixMegjelenitese();
+            SzobaMegjelenitese();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -262,6 +314,39 @@ namespace DnSZ
             {
                 MehetJobb = true;
             }
+
+
+            label1.Text = "X: " + JelelegiHelyXPlayer + " Y: " + JelelegiHelyYPlayer;
+
+
+            if (PL.Bounds.IntersectsWith(AjtoBal.Bounds))
+            {
+                JelelegiHelyXPlayer--;
+                SzobaMegjelenitese(); 
+                PL.Location = new Point(781, 313);
+            }
+
+            if (PL.Bounds.IntersectsWith(AjtoFel.Bounds))
+            {
+                JelelegiHelyYPlayer--;
+                SzobaMegjelenitese();
+                PL.Location = new Point(546, 532);
+            }
+
+            if (PL.Bounds.IntersectsWith(AjtoJobb.Bounds))
+            {
+                JelelegiHelyXPlayer++;
+                SzobaMegjelenitese();
+                PL.Location = new Point(318, 313);
+            }
+
+            if (PL.Bounds.IntersectsWith(AjtoLe.Bounds))
+            {
+                JelelegiHelyYPlayer++;
+                SzobaMegjelenitese();
+                PL.Location = new Point(554, 82);
+            }   
+            
         }
     }
 }
