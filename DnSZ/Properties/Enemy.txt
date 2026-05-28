@@ -1,2 +1,2 @@
 Nev;HP;LVL;MinDMG
-Gonosz;20;10;3
+Boszorkany;20;10;3

@@ -24,7 +24,7 @@ namespace DnSZ
         public Fight()
         {
             InitializeComponent();
-            Kezdes();
+            Kezdes();   
         }
 
         private void Kezdes()
@@ -38,7 +38,7 @@ namespace DnSZ
             this.ControlBox = true;
 
             PlayerPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.jpeg"));
-            EnemyPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", $"{Enemy[0].Nev}.jpeg"));
+            EnemyPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", $"{Enemy[0].Nev}.png"));
 
             Kiiras();
         }
@@ -258,6 +258,7 @@ namespace DnSZ
                 await Task.Delay(2000);
                 if (Player[0].HP <= 0)
                 {
+                    FileIO.Mentes(Player, MaxHp, MaxMana);
                     MessageBox.Show("Vesztettél!");
                     this.Close();
                 }
