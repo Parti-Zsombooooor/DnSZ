@@ -37,7 +37,7 @@ namespace DnSZ
             ellenfelLBOX.Visible = false;
             this.ControlBox = true;
 
-            PlayerPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.jpeg"));
+            PlayerPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.png"));
             EnemyPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", $"{Enemy[0].Nev}.png"));
 
             Kiiras();
