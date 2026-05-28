@@ -37,14 +37,17 @@
             this.AjtoBal = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BorderBal = new System.Windows.Forms.Panel();
-            this.BorderJobb = new System.Windows.Forms.Panel();
             this.BorderFel = new System.Windows.Forms.Panel();
             this.BorderLe = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.BorderJobb = new System.Windows.Forms.Panel();
+            this.AjtoLe = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoBal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AjtoLe)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -70,7 +73,7 @@
             // 
             this.PL.BackgroundImage = global::DnSZ.Properties.Resources.AjtoPlaceHolder;
             this.PL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PL.Location = new System.Drawing.Point(493, 268);
+            this.PL.Location = new System.Drawing.Point(416, 310);
             this.PL.Name = "PL";
             this.PL.Size = new System.Drawing.Size(32, 32);
             this.PL.TabIndex = 6;
@@ -78,7 +81,7 @@
             // AjtoFel
             // 
             this.AjtoFel.Image = global::DnSZ.Properties.Resources.ajtoforog;
-            this.AjtoFel.Location = new System.Drawing.Point(523, 47);
+            this.AjtoFel.Location = new System.Drawing.Point(520, 47);
             this.AjtoFel.Name = "AjtoFel";
             this.AjtoFel.Size = new System.Drawing.Size(96, 24);
             this.AjtoFel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -118,23 +121,15 @@
             // BorderBal
             // 
             this.BorderBal.BackColor = System.Drawing.Color.IndianRed;
-            this.BorderBal.Location = new System.Drawing.Point(181, 27);
+            this.BorderBal.Location = new System.Drawing.Point(172, 27);
             this.BorderBal.Name = "BorderBal";
             this.BorderBal.Size = new System.Drawing.Size(131, 602);
             this.BorderBal.TabIndex = 7;
             // 
-            // BorderJobb
-            // 
-            this.BorderJobb.BackColor = System.Drawing.Color.IndianRed;
-            this.BorderJobb.Location = new System.Drawing.Point(817, 27);
-            this.BorderJobb.Name = "BorderJobb";
-            this.BorderJobb.Size = new System.Drawing.Size(131, 602);
-            this.BorderJobb.TabIndex = 8;
-            // 
             // BorderFel
             // 
             this.BorderFel.BackColor = System.Drawing.Color.IndianRed;
-            this.BorderFel.Location = new System.Drawing.Point(179, 10);
+            this.BorderFel.Location = new System.Drawing.Point(179, 4);
             this.BorderFel.Name = "BorderFel";
             this.BorderFel.Size = new System.Drawing.Size(768, 66);
             this.BorderFel.TabIndex = 9;
@@ -142,7 +137,7 @@
             // BorderLe
             // 
             this.BorderLe.BackColor = System.Drawing.Color.IndianRed;
-            this.BorderLe.Location = new System.Drawing.Point(166, 580);
+            this.BorderLe.Location = new System.Drawing.Point(166, 587);
             this.BorderLe.Name = "BorderLe";
             this.BorderLe.Size = new System.Drawing.Size(768, 56);
             this.BorderLe.TabIndex = 10;
@@ -152,12 +147,43 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // BorderJobb
+            // 
+            this.BorderJobb.BackColor = System.Drawing.Color.IndianRed;
+            this.BorderJobb.Location = new System.Drawing.Point(822, 27);
+            this.BorderJobb.Name = "BorderJobb";
+            this.BorderJobb.Size = new System.Drawing.Size(131, 602);
+            this.BorderJobb.TabIndex = 8;
+            // 
+            // AjtoLe
+            // 
+            this.AjtoLe.Image = global::DnSZ.Properties.Resources.ajtoforog;
+            this.AjtoLe.Location = new System.Drawing.Point(514, 583);
+            this.AjtoLe.Name = "AjtoLe";
+            this.AjtoLe.Size = new System.Drawing.Size(96, 24);
+            this.AjtoLe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.AjtoLe.TabIndex = 11;
+            this.AjtoLe.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AjtoLe);
             this.Controls.Add(this.PL);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
@@ -165,10 +191,10 @@
             this.Controls.Add(this.AjtoJobb);
             this.Controls.Add(this.AjtoBal);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.BorderLe);
             this.Controls.Add(this.BorderFel);
-            this.Controls.Add(this.BorderJobb);
             this.Controls.Add(this.BorderBal);
+            this.Controls.Add(this.BorderLe);
+            this.Controls.Add(this.BorderJobb);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Form1";
@@ -178,7 +204,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoBal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AjtoLe)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,10 +220,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel PL;
         private System.Windows.Forms.Panel BorderBal;
-        private System.Windows.Forms.Panel BorderJobb;
         private System.Windows.Forms.Panel BorderFel;
         private System.Windows.Forms.Panel BorderLe;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel BorderJobb;
+        private System.Windows.Forms.PictureBox AjtoLe;
+        private System.Windows.Forms.Label label1;
     }
 }
 
