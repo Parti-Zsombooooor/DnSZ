@@ -13,18 +13,29 @@ namespace DnSZ
 {
     public partial class Fight : Form
     {
-        static List<Player> Player = FileIO.Beolvasas(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
-        static List<Enemy> Enemy = FileIO.BeolvasasE(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Enemy.txt"));
+        static List<Player> Player = new List<Player>();
+        static List<Enemy> Enemy = new List<Enemy>();
 
-        static int MaxHp = Player[0].HP;
-        static int MaxMana = Player[0].Mana;
-        static int MaxHpE = Enemy[0].HP;
+        static int MaxHp = 0;
+        static int MaxMana = 0;
+        static int MaxHpE = 0;
         static int PotiUsed = 0;
 
         public Fight()
         {
             InitializeComponent();
-            Kezdes();   
+        }
+
+        private void Fight_Load(object sender, EventArgs e)
+        {
+            Player = FileIO.Beolvasas(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
+            Enemy = FileIO.BeolvasasE(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Enemy.txt"));
+
+            MaxHp = Player[0].HP;
+            MaxMana = Player[0].Mana;
+            MaxHpE = Enemy[0].HP;
+
+            Kezdes();
         }
 
         private void Kezdes()
@@ -39,7 +50,6 @@ namespace DnSZ
 
             PlayerPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.png"));
             EnemyPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", $"{Enemy[0].Nev}.png"));
-
             Kiiras();
         }
         private void Kiiras()
@@ -308,5 +318,7 @@ namespace DnSZ
             MenuLBOX.Enabled = true;
             MenuLBOX.Focus();
         }
+
+
     }
 }

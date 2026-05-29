@@ -264,6 +264,7 @@
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Fight";
             this.Text = "Fight";
+            this.Load += new System.EventHandler(this.Fight_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyPBOX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
