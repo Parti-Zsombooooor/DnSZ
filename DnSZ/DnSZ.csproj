@@ -152,5 +152,11 @@
   <ItemGroup>
     <None Include="Properties\AjtoPlaceHolder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\hatter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Start.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

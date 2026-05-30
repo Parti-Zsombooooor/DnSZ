@@ -103,6 +103,16 @@ namespace DnSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hatter {
+            get {
+                object obj = ResourceManager.GetObject("hatter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kepbar {
             get {
                 object obj = ResourceManager.GetObject("kepbar", resourceCulture);
@@ -136,6 +146,16 @@ namespace DnSZ.Properties {
         internal static System.Drawing.Bitmap mapElso {
             get {
                 object obj = ResourceManager.GetObject("mapElso", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Start {
+            get {
+                object obj = ResourceManager.GetObject("Start", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
