@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,9 @@ namespace DnSZ
 
         int JelelegiHelyXPlayer = 25;
         int JelelegiHelyYPlayer = 48;
+
+        int utolsoSzobaX = 0;
+        int utolsoSzobaY = 0;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +36,9 @@ namespace DnSZ
            
             timer1.Start();
             SzobaMegjelenitese();
+
+            AtlatszosagAllito(totemPBox, pictureBox1);
+            AtlatszosagAllito(chestPBox, pictureBox1);
         }
 
         private void SzobaMegjelenitese()
@@ -39,9 +46,12 @@ namespace DnSZ
             int y = JelelegiHelyYPlayer;
             int x = JelelegiHelyXPlayer;
 
+            //Ez a rész az ajtok megjeleniteset csinalja, megnezi hogy a matrixban
+            //a jelenlegi helyhez melyik iranyban van szoba,
+            //es annak megfeleloen jeleniti meg az ajtokat.
 
             int erintettSzobak = 0;
-            if (matrix[y, x - 1] == 1)
+            if (matrix[y, x - 1] != 0)
             {
                 AjtoBal.Visible = true;
             }
@@ -50,7 +60,7 @@ namespace DnSZ
                 AjtoBal.Visible = false;
             }
 
-            if (matrix[y, x + 1] == 1)
+            if (matrix[y, x + 1] != 0)
             {
                 AjtoJobb.Visible = true;
             }
@@ -59,7 +69,7 @@ namespace DnSZ
                 AjtoJobb.Visible = false;
             }
 
-            if (matrix[y + 1, x] == 1)
+            if (matrix[y + 1, x] != 0)
             {
                 AjtoLe.Visible = true;
             }
@@ -68,7 +78,7 @@ namespace DnSZ
                 AjtoLe.Visible = false;
             }
 
-            if (matrix[y - 1, x] == 1)
+            if (matrix[y - 1, x] != 0)
             {
                 AjtoFel.Visible = true;
             }
@@ -79,89 +89,108 @@ namespace DnSZ
         }
 
         private void SzobaGeneralasa()
-         {
-             int szobaSzam = 0;
-             int jelelegiHelyX = 25;
-             int jelelegiHelyY = 48;
-             matrix[48, 25] = 1;
+        {
+            int szobaSzam = 0;
+            int jelelegiHelyX = 25;
+            int jelelegiHelyY = 48;
+            matrix[48, 25] = 1;
             int ismetlesFel = 0;
             int ismetlesJobb = 0;
             int ismetlesBal = 0;
 
-            int utolsoSzobaX = 0;
-            int utolsoSzobaY = 0;
-
             int akartSzobaSzam = 10;
-
             Random rd = new Random();
-            while (szobaSzam <= akartSzobaSzam)
-             {
-               
-                 int irany = rd.Next(0, 4);
-                 if(irany == 1)
-                 {
+            int ladaSzobaSzama = 4;
 
+            while (szobaSzam <= akartSzobaSzam)
+            {
+                int irany = rd.Next(0, 4);
+
+                if (irany == 1) // Balra generált szoba
+                {
                     if (matrix[jelelegiHelyY, jelelegiHelyX - 1] == 0 && ErintesChek(jelelegiHelyY, jelelegiHelyX - 1) && ismetlesBal <= 1)
                     {
                         szobaSzam++;
-                        matrix[jelelegiHelyY, jelelegiHelyX - 1] = 1;
+
+                        if (ladaSzobaSzama != 0 && rd.Next(0, 3) == 1)
+                        {
+                            matrix[jelelegiHelyY, jelelegiHelyX - 1] = 2;
+                            ladaSzobaSzama--;
+                        }
+                        else
+                        {
+                            matrix[jelelegiHelyY, jelelegiHelyX - 1] = 1;
+                        }
+
                         jelelegiHelyX--;
                         ismetlesBal++;
                         ismetlesJobb = 0;
                         ismetlesFel = 0;
-                       
-                        if(szobaSzam == akartSzobaSzam - 1)
-                        {
-                            utolsoSzobaX = jelelegiHelyX - 1;
-                            utolsoSzobaY = jelelegiHelyY;
-                        }
+
+                        // Mindig frissítjük az utolsó szoba koordinátáit
+                        utolsoSzobaX = jelelegiHelyX;
+                        utolsoSzobaY = jelelegiHelyY;
                     }
                 }
-                 else if(irany == 2)
-                 {
-    ;
-                     if (matrix[jelelegiHelyY - 1, jelelegiHelyX] == 0 && ErintesChek(jelelegiHelyY - 1, jelelegiHelyX) && ismetlesFel <= 1)
-                     {
-                         szobaSzam++;
-                         matrix[jelelegiHelyY-1, jelelegiHelyX] = 1;
-                         jelelegiHelyY--;
+                else if (irany == 2) // Fel generált szoba
+                {
+                    if (matrix[jelelegiHelyY - 1, jelelegiHelyX] == 0 && ErintesChek(jelelegiHelyY - 1, jelelegiHelyX) && ismetlesFel <= 1)
+                    {
+                        szobaSzam++;
+
+                        if (ladaSzobaSzama != 0 && rd.Next(0, 3) == 1)
+                        {
+                            matrix[jelelegiHelyY - 1, jelelegiHelyX] = 2;
+                            ladaSzobaSzama--;
+                        }
+                        else
+                        {
+                            matrix[jelelegiHelyY - 1, jelelegiHelyX] = 1;
+                        }
+
+                        jelelegiHelyY--;
                         ismetlesFel++;
                         ismetlesJobb = 0;
                         ismetlesBal = 0;
 
-                        if (szobaSzam == akartSzobaSzam - 1)
-                        {
-                            utolsoSzobaX = jelelegiHelyX;
-                            utolsoSzobaY = jelelegiHelyY - 1;
-                        }
+                        // Mindig frissítjük az utolsó szoba koordinátáit
+                        utolsoSzobaX = jelelegiHelyX;
+                        utolsoSzobaY = jelelegiHelyY;
                     }
-                 }
-                 else if (irany == 3)
-                 {
-        
+                }
+                else if (irany == 3) // Jobb generált szoba
+                {
                     if (matrix[jelelegiHelyY, jelelegiHelyX + 1] == 0 && ErintesChek(jelelegiHelyY, jelelegiHelyX + 1) && ismetlesJobb <= 1)
-                     {
-                         szobaSzam++;
-                         matrix[jelelegiHelyY, jelelegiHelyX + 1] = 1;
-                         jelelegiHelyX++;
+                    {
+                        szobaSzam++;
+
+                        if (ladaSzobaSzama != 0 && rd.Next(0, 3) == 1)
+                        {
+                            matrix[jelelegiHelyY, jelelegiHelyX + 1] = 2;
+                            ladaSzobaSzama--;
+                        }
+                        else
+                        {
+                            matrix[jelelegiHelyY, jelelegiHelyX + 1] = 1;
+                        }
+
+                        jelelegiHelyX++;
                         ismetlesJobb++;
                         ismetlesBal = 0;
                         ismetlesFel = 0;
 
-                        if (szobaSzam == akartSzobaSzam - 1)
-                        {
-                            utolsoSzobaX = jelelegiHelyX + 1;
-                            utolsoSzobaY = jelelegiHelyY;
-                        }
+                        // Mindig frissítjük az utolsó szoba koordinátáit
+                        utolsoSzobaX = jelelegiHelyX;
+                        utolsoSzobaY = jelelegiHelyY;
                     }
-                 }
+                }
+            }
 
-             }
-
-            
-
+            //legutolsó szobában ne legyen láda.
+            matrix[utolsoSzobaY, utolsoSzobaX] = 1;
         }
 
+        //Ez a rész azért van hogy ne lehhes több szoba egymás mellet.
         private bool ErintesChek(int Y, int x)
         {
             int erintettSzobak = 0;
@@ -227,6 +256,10 @@ namespace DnSZ
                     {
                         aktualisSor += "■ ";
                     }
+                    else if(matrix[sor, oszlop] == 2)
+                    {
+                        aktualisSor += "▦ ";
+                    }
                     else
                     {
                         aktualisSor += "    ";
@@ -236,6 +269,8 @@ namespace DnSZ
             }
         }
 
+
+        //Feltőltjük 0-kal a matrixot hogy leheseen bel írni
         private void MatrixFeltoltese()
         {
             
@@ -275,8 +310,41 @@ namespace DnSZ
             {
                 PL.Location = new Point(PL.Location.X + 10, PL.Location.Y);
             }
+
+            //Átalakítjuk mindkét vezérlő pozícióját globális képernyő-koordinátákká
+            Rectangle plKepernyoBounds = PL.RectangleToScreen(PL.ClientRectangle);
+            Rectangle chestKepernyoBounds = chestPBox.RectangleToScreen(chestPBox.ClientRectangle);
+
+            //Összehasonlítjuk a globális koordinátákat, ÉS megnézzük, hogy a láda egyáltalán látható-e
+            if (plKepernyoBounds.IntersectsWith(chestKepernyoBounds) && e.KeyCode == Keys.E && chestPBox.Visible)
+            {
+                MessageBox.Show("Kinyitottad a ládát! Találtál egy gyógyító potiont!");
+            }
+
+            Rectangle plKepernyoBounds2 = PL.RectangleToScreen(PL.ClientRectangle);
+            Rectangle totemKepernyoBounds2 = totemPBox.RectangleToScreen(totemPBox.ClientRectangle);
+
+
+            if (plKepernyoBounds2.IntersectsWith(totemKepernyoBounds2) && e.KeyCode == Keys.E && totemPBox.Visible)
+            {
+                MessageBox.Show("Harc");
+            }
         }
 
+        private void AtlatszosagAllito(PictureBox child, PictureBox newParent)
+        {
+            //Átlátszó háttér
+            child.BackColor = Color.Transparent;
+
+            //Új szülő beállítása
+            child.Parent = newParent;
+
+            //Pozíció eltolása az új szülőhöz képest
+            child.Location = new Point(
+                child.Location.X - newParent.Location.X,
+                child.Location.Y - newParent.Location.Y
+            );
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (PL.Bounds.IntersectsWith(BorderFel.Bounds))
@@ -319,34 +387,55 @@ namespace DnSZ
             label1.Text = "X: " + JelelegiHelyXPlayer + " Y: " + JelelegiHelyYPlayer;
 
 
-            if (PL.Bounds.IntersectsWith(AjtoBal.Bounds))
+            if (PL.Bounds.IntersectsWith(AjtoBal.Bounds) && AjtoBal.Visible == true)
             {
                 JelelegiHelyXPlayer--;
-                SzobaMegjelenitese(); 
-                PL.Location = new Point(781, 313);
+                SzobaMegjelenitese();
+                PL.Location = new Point(754, 311);
             }
 
-            if (PL.Bounds.IntersectsWith(AjtoFel.Bounds))
+            if (PL.Bounds.IntersectsWith(AjtoFel.Bounds) && AjtoFel.Visible == true)
             {
                 JelelegiHelyYPlayer--;
                 SzobaMegjelenitese();
                 PL.Location = new Point(546, 532);
             }
 
-            if (PL.Bounds.IntersectsWith(AjtoJobb.Bounds))
+            if (PL.Bounds.IntersectsWith(AjtoJobb.Bounds) && AjtoJobb.Visible == true)
             {
                 JelelegiHelyXPlayer++;
                 SzobaMegjelenitese();
                 PL.Location = new Point(318, 313);
             }
 
-            if (PL.Bounds.IntersectsWith(AjtoLe.Bounds))
+            if (PL.Bounds.IntersectsWith(AjtoLe.Bounds) && AjtoLe.Visible == true)
             {
                 JelelegiHelyYPlayer++;
                 SzobaMegjelenitese();
                 PL.Location = new Point(554, 82);
-            }   
-            
+            }
+
+            if (matrix[JelelegiHelyYPlayer, JelelegiHelyXPlayer] == 2)
+            {
+                chestPBox.Visible = true;
+            }
+            else
+            {
+                chestPBox.Visible = false;
+
+            }
+
+            if (JelelegiHelyYPlayer == utolsoSzobaY && JelelegiHelyXPlayer == utolsoSzobaX)
+            {
+                totemPBox.Visible = true;
+            }
+            else
+            {
+                totemPBox.Visible = false;
+
+            }
+
+        
         }
     }
 }

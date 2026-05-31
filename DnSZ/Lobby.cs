@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace DnSZ
         public Lobby()
         {
             InitializeComponent();
+            TitlePBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "titlecard.png"));
+            TitlePBOX.BackColor = Color.Transparent;
+            nametxtPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "nametxt.png"));
+            nametxtPBOX.BackColor = Color.Transparent;
         }
 
         private void button1_Click(object sender, EventArgs e)

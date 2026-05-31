@@ -30,6 +30,10 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.TitlePBOX = new System.Windows.Forms.PictureBox();
+            this.nametxtPBOX = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePBOX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nametxtPBOX)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -38,7 +42,7 @@
             this.button1.BackgroundImage = global::DnSZ.Properties.Resources.Start;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(752, 478);
+            this.button1.Location = new System.Drawing.Point(752, 508);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(320, 140);
             this.button1.TabIndex = 0;
@@ -47,13 +51,30 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(671, 585);
+            this.button2.Location = new System.Drawing.Point(671, 619);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // TitlePBOX
+            // 
+            this.TitlePBOX.Image = global::DnSZ.Properties.Resources.kepbarle;
+            this.TitlePBOX.Location = new System.Drawing.Point(225, 12);
+            this.TitlePBOX.Name = "TitlePBOX";
+            this.TitlePBOX.Size = new System.Drawing.Size(625, 460);
+            this.TitlePBOX.TabIndex = 2;
+            this.TitlePBOX.TabStop = false;
+            // 
+            // nametxtPBOX
+            // 
+            this.nametxtPBOX.Location = new System.Drawing.Point(12, 624);
+            this.nametxtPBOX.Name = "nametxtPBOX";
+            this.nametxtPBOX.Size = new System.Drawing.Size(360, 24);
+            this.nametxtPBOX.TabIndex = 3;
+            this.nametxtPBOX.TabStop = false;
             // 
             // Lobby
             // 
@@ -62,12 +83,16 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::DnSZ.Properties.Resources.hatter;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.nametxtPBOX);
+            this.Controls.Add(this.TitlePBOX);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "Lobby";
             this.Text = "Lobby";
+            ((System.ComponentModel.ISupportInitialize)(this.TitlePBOX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nametxtPBOX)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -76,5 +101,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox TitlePBOX;
+        private System.Windows.Forms.PictureBox nametxtPBOX;
     }
 }

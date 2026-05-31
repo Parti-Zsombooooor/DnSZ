@@ -24,6 +24,8 @@ namespace DnSZ
             Mana = Convert.ToInt32(sor.Split(';')[3]);
             HPPoti = Convert.ToInt32(sor.Split(';')[4]);
             ManaPoti = Convert.ToInt32(sor.Split(';')[5]);
+
+
         }
     }
 }
