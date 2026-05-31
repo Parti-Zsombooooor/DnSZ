@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.TitlePBOX = new System.Windows.Forms.PictureBox();
             this.nametxtPBOX = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePBOX)).BeginInit();
@@ -48,16 +47,6 @@
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(671, 619);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // TitlePBOX
             // 
@@ -85,7 +74,6 @@
             this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.nametxtPBOX);
             this.Controls.Add(this.TitlePBOX);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximumSize = new System.Drawing.Size(1100, 700);
             this.MinimumSize = new System.Drawing.Size(1100, 700);
@@ -100,7 +88,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox TitlePBOX;
         private System.Windows.Forms.PictureBox nametxtPBOX;
     }

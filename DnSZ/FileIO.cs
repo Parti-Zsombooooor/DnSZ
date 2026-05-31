@@ -60,5 +60,23 @@ namespace DnSZ
             }
         }
 
+        public static void Tisztitas()
+        {
+            try
+            {
+                string adatok = $"0;1;20;20;0;0";
+                StreamWriter ir = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
+                ir.WriteLine("XP;LVL;HP;Mana;HPPoti;ManaPoti");
+                ir.WriteLine(adatok);
+                ir.Flush();
+                ir.Close();
+            }
+            catch (IOException)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

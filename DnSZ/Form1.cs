@@ -39,7 +39,6 @@ namespace DnSZ
 
             MatrixFeltoltese();
             SzobaGeneralasa();
-            MatrixMegjelenitese();
             this.KeyPreview = true;
            
             timer1.Start();
@@ -47,8 +46,16 @@ namespace DnSZ
 
             AtlatszosagAllito(totemPBox, pictureBox1);
             AtlatszosagAllito(chestPBox, pictureBox1);
-        
 
+            LabelekFrissitese();
+
+        }
+
+        private void LabelekFrissitese()
+        {
+            lvlLabel.Text = $"LVL: {Player[0].Lvl.ToString()}";
+            ManaPotiLabel.Text = $"ManaPoti: {Player[0].ManaPoti.ToString()}";
+            HpPotiLabel.Text = $"HpPoti: {Player[0].HPPoti.ToString()}";
         }
 
         private void SzobaMegjelenitese()
@@ -222,7 +229,7 @@ namespace DnSZ
             matrix[utolsoSzobaY, utolsoSzobaX] = 1;
         }
 
-        //Ez a rész azért van hogy ne lehhes több szoba egymás mellet.
+        //Ez a rész azért van hogy ne lehesen több szoba egymás mellet.
         private bool ErintesChek(int Y, int x)
         {
             int erintettSzobak = 0;
@@ -254,52 +261,7 @@ namespace DnSZ
 
         }
 
-        private void MatrixMegjelenitese()
-        {
-            int legfelsoSor = 50, legalsoSor = -1;
-            int legbaloldalibbOszlop = 50, legjobboldalibbOszlop = -1;
-
-            for (int sor = 0; sor < 50; sor++)
-            {
-                for (int oszlop = 0; oszlop < 50; oszlop++)
-                {
-                    if (matrix[sor, oszlop] == 1)
-                    {
-                        if (sor < legfelsoSor) legfelsoSor = sor;
-                        if (sor > legalsoSor) legalsoSor = sor;
-                        if (oszlop < legbaloldalibbOszlop) legbaloldalibbOszlop = oszlop;
-                        if (oszlop > legjobboldalibbOszlop) legjobboldalibbOszlop = oszlop;
-                    }
-                }
-            }
-
-            listBox1.Items.Clear();
-            if (legalsoSor == -1)
-            {
-                listBox1.Items.Add("A mátrix teljesen üres, nincsenek szobák.");
-                return;
-            }
-            for (int sor = legfelsoSor; sor <= legalsoSor; sor++)
-            {
-                string aktualisSor = "";
-                for (int oszlop = legbaloldalibbOszlop; oszlop <= legjobboldalibbOszlop; oszlop++)
-                {
-                    if (matrix[sor, oszlop] == 1)
-                    {
-                        aktualisSor += "■ ";
-                    }
-                    else if(matrix[sor, oszlop] == 2)
-                    {
-                        aktualisSor += "▦ ";
-                    }
-                    else
-                    {
-                        aktualisSor += "    ";
-                    }
-                }
-                listBox1.Items.Add(aktualisSor);
-            }
-        }
+     
 
 
         //Feltőltjük 0-kal a matrixot hogy leheseen bel írni
@@ -321,7 +283,6 @@ namespace DnSZ
         {
             MatrixFeltoltese();
             SzobaGeneralasa();
-            MatrixMegjelenitese();
             SzobaMegjelenitese();
         }
         Random rd2 = new Random();
@@ -351,8 +312,9 @@ namespace DnSZ
             //Összehasonlítjuk a globális koordinátákat, ÉS megnézzük, hogy a láda egyáltalán látható-e
             if (plKepernyoBounds.IntersectsWith(chestKepernyoBounds) && e.KeyCode == Keys.E && chestPBox.Visible)
             {
+                int radnmonDrop = rd2.Next(0, 2);
 
-                if(rd2.Next(0,3) == 1)
+                if (radnmonDrop == 1)
                 {
                     if(rd2.Next(0, 4) == 1)
                     {
@@ -363,7 +325,7 @@ namespace DnSZ
                         Player[0].HPPoti++;
                     }
                 }
-                else
+                else if(radnmonDrop == 0)
                 {
                     if (rd2.Next(0, 4) == 1)
                     {
@@ -374,6 +336,7 @@ namespace DnSZ
                         Player[0].ManaPoti++;
                     }
                 }
+                LabelekFrissitese();
                 chestPBox.Visible = false;
 
 
@@ -412,6 +375,9 @@ namespace DnSZ
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
+
+
             if (PL.Bounds.IntersectsWith(BorderFel.Bounds))
             {
                 MehetFel = false;
@@ -449,8 +415,6 @@ namespace DnSZ
             }
 
 
-            label1.Text = "X: " + JelelegiHelyXPlayer + " Y: " + JelelegiHelyYPlayer;
-
 
             if (PL.Bounds.IntersectsWith(AjtoBal.Bounds) && AjtoBal.Visible == true)
             {
@@ -480,9 +444,37 @@ namespace DnSZ
                 PL.Location = new Point(554, 82);
             }
 
-    
 
-        
+            Rectangle plKepernyoBounds = PL.RectangleToScreen(PL.ClientRectangle);
+            Rectangle chestKepernyoBounds = chestPBox.RectangleToScreen(chestPBox.ClientRectangle);
+
+
+            if (plKepernyoBounds.IntersectsWith(chestKepernyoBounds) && chestPBox.Visible)
+            {
+                Ebetu.Text = "Nyomd meg az E betűt a láda kinyitásához!";
+            }
+            else
+            {
+                Ebetu.Text = "";
+            }
+
+            Rectangle plKepernyoBounds2 = PL.RectangleToScreen(PL.ClientRectangle);
+            Rectangle totemKepernyoBounds2 = totemPBox.RectangleToScreen(totemPBox.ClientRectangle);
+
+
+            if (plKepernyoBounds2.IntersectsWith(totemKepernyoBounds2) && totemPBox.Visible)
+            {
+                totemLb.Text = "Nyomd meg az E betűt a HARCHOZ!";
+            }
+            else
+            {
+                totemLb.Text = "";
+            }
+           
+
+
+
+
         }
     }
 }

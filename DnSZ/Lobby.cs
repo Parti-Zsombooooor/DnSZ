@@ -20,6 +20,8 @@ namespace DnSZ
             TitlePBOX.BackColor = Color.Transparent;
             nametxtPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "nametxt.png"));
             nametxtPBOX.BackColor = Color.Transparent;
+
+            FileIO.Tisztitas();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,12 +32,5 @@ namespace DnSZ
             this.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Fight jatekstart = new Fight();
-            this.Hide();
-            jatekstart.ShowDialog();
-            this.Show();
-        }
     }
 }

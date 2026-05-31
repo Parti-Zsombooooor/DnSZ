@@ -229,7 +229,9 @@ namespace DnSZ
 
 
                 FileIO.Mentes(Player, MaxHp, MaxMana);
+                Form1 jatekstart = new Form1();
                 this.Close();
+                jatekstart.ShowDialog();
             }
             else
             {

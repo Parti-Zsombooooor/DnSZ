@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.BorderBal = new System.Windows.Forms.Panel();
             this.BorderFel = new System.Windows.Forms.Panel();
             this.BorderLe = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.BorderJobb = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.AjtoLe = new System.Windows.Forms.PictureBox();
             this.AjtoFel = new System.Windows.Forms.PictureBox();
             this.AjtoJobb = new System.Windows.Forms.PictureBox();
@@ -45,6 +42,12 @@
             this.chestPBox = new System.Windows.Forms.PictureBox();
             this.totemPBox = new System.Windows.Forms.PictureBox();
             this.PL = new System.Windows.Forms.PictureBox();
+            this.lvlLabel = new System.Windows.Forms.Label();
+            this.ManaPotiLabel = new System.Windows.Forms.Label();
+            this.HpPotiLabel = new System.Windows.Forms.Label();
+            this.Ebetu = new System.Windows.Forms.Label();
+            this.totemLb = new System.Windows.Forms.Label();
+            this.BorderLe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoLe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).BeginInit();
@@ -54,25 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.totemPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PL)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(186, 173);
-            this.listBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(53, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 37);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BorderBal
             // 
@@ -93,6 +77,8 @@
             // BorderLe
             // 
             this.BorderLe.BackColor = System.Drawing.Color.Transparent;
+            this.BorderLe.Controls.Add(this.totemLb);
+            this.BorderLe.Controls.Add(this.Ebetu);
             this.BorderLe.Location = new System.Drawing.Point(166, 587);
             this.BorderLe.Name = "BorderLe";
             this.BorderLe.Size = new System.Drawing.Size(768, 56);
@@ -110,17 +96,6 @@
             this.BorderJobb.Name = "BorderJobb";
             this.BorderJobb.Size = new System.Drawing.Size(131, 602);
             this.BorderJobb.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // AjtoLe
             // 
@@ -204,6 +179,66 @@
             this.PL.TabIndex = 13;
             this.PL.TabStop = false;
             // 
+            // lvlLabel
+            // 
+            this.lvlLabel.AutoSize = true;
+            this.lvlLabel.BackColor = System.Drawing.Color.Transparent;
+            this.lvlLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lvlLabel.ForeColor = System.Drawing.Color.White;
+            this.lvlLabel.Location = new System.Drawing.Point(12, 27);
+            this.lvlLabel.Name = "lvlLabel";
+            this.lvlLabel.Size = new System.Drawing.Size(79, 29);
+            this.lvlLabel.TabIndex = 14;
+            this.lvlLabel.Text = "LVL: 0";
+            // 
+            // ManaPotiLabel
+            // 
+            this.ManaPotiLabel.AutoSize = true;
+            this.ManaPotiLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ManaPotiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ManaPotiLabel.ForeColor = System.Drawing.Color.White;
+            this.ManaPotiLabel.Location = new System.Drawing.Point(12, 65);
+            this.ManaPotiLabel.Name = "ManaPotiLabel";
+            this.ManaPotiLabel.Size = new System.Drawing.Size(139, 29);
+            this.ManaPotiLabel.TabIndex = 15;
+            this.ManaPotiLabel.Text = "ManaPoti: 0";
+            // 
+            // HpPotiLabel
+            // 
+            this.HpPotiLabel.AutoSize = true;
+            this.HpPotiLabel.BackColor = System.Drawing.Color.Transparent;
+            this.HpPotiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.HpPotiLabel.ForeColor = System.Drawing.Color.White;
+            this.HpPotiLabel.Location = new System.Drawing.Point(12, 103);
+            this.HpPotiLabel.Name = "HpPotiLabel";
+            this.HpPotiLabel.Size = new System.Drawing.Size(111, 29);
+            this.HpPotiLabel.TabIndex = 16;
+            this.HpPotiLabel.Text = "HpPoti: 0";
+            // 
+            // Ebetu
+            // 
+            this.Ebetu.AutoSize = true;
+            this.Ebetu.BackColor = System.Drawing.Color.Transparent;
+            this.Ebetu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Ebetu.ForeColor = System.Drawing.Color.White;
+            this.Ebetu.Location = new System.Drawing.Point(175, 23);
+            this.Ebetu.Name = "Ebetu";
+            this.Ebetu.Size = new System.Drawing.Size(19, 29);
+            this.Ebetu.TabIndex = 17;
+            this.Ebetu.Text = " ";
+            // 
+            // totemLb
+            // 
+            this.totemLb.AutoSize = true;
+            this.totemLb.BackColor = System.Drawing.Color.Transparent;
+            this.totemLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.totemLb.ForeColor = System.Drawing.Color.White;
+            this.totemLb.Location = new System.Drawing.Point(204, 23);
+            this.totemLb.Name = "totemLb";
+            this.totemLb.Size = new System.Drawing.Size(19, 29);
+            this.totemLb.TabIndex = 18;
+            this.totemLb.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,13 +246,13 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = global::DnSZ.Properties.Resources.hatter;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.HpPotiLabel);
+            this.Controls.Add(this.ManaPotiLabel);
+            this.Controls.Add(this.lvlLabel);
             this.Controls.Add(this.PL);
             this.Controls.Add(this.totemPBox);
             this.Controls.Add(this.chestPBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.AjtoLe);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.AjtoFel);
             this.Controls.Add(this.AjtoJobb);
             this.Controls.Add(this.AjtoBal);
@@ -231,6 +266,8 @@
             this.Name = "Form1";
             this.Text = "Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.BorderLe.ResumeLayout(false);
+            this.BorderLe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoLe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoFel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AjtoJobb)).EndInit();
@@ -245,23 +282,24 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox AjtoBal;
         private System.Windows.Forms.PictureBox AjtoJobb;
         private System.Windows.Forms.PictureBox AjtoFel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel BorderBal;
         private System.Windows.Forms.Panel BorderFel;
         private System.Windows.Forms.Panel BorderLe;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel BorderJobb;
         private System.Windows.Forms.PictureBox AjtoLe;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox chestPBox;
         private System.Windows.Forms.PictureBox totemPBox;
         private System.Windows.Forms.PictureBox PL;
+        private System.Windows.Forms.Label lvlLabel;
+        private System.Windows.Forms.Label ManaPotiLabel;
+        private System.Windows.Forms.Label HpPotiLabel;
+        private System.Windows.Forms.Label Ebetu;
+        private System.Windows.Forms.Label totemLb;
     }
 }
 
