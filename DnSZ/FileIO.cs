@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DnSZ
 {
@@ -42,10 +43,11 @@ namespace DnSZ
 
         public static void Mentes(List<Player> Player, int MaxHp, int MaxMana)
         {
+           
             try
             {
                 string adatok = $"{Player[0].XP};{Player[0].Lvl};{MaxHp};{MaxMana};{Player[0].HPPoti};{Player[0].ManaPoti}";
-                StreamWriter ir = new StreamWriter("Player.txt");
+                StreamWriter ir = new StreamWriter(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
                 ir.WriteLine("XP;LVL;HP;Mana;HPPoti;ManaPoti");
                 ir.WriteLine(adatok);
                 ir.Flush();

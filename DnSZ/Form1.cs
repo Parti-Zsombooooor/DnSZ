@@ -19,6 +19,10 @@ namespace DnSZ
         Boolean MehetJobb = true;
         Boolean MehetBal = true;
 
+        static List<Player> Player = new List<Player>();
+        static int MaxHp = 0;
+        static int MaxMana = 0;
+
         Boolean ereintiAjtot = false;
 
         int JelelegiHelyXPlayer = 25;
@@ -29,6 +33,10 @@ namespace DnSZ
         public Form1()
         {
             InitializeComponent();
+            Player = FileIO.Beolvasas(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
+            MaxHp = Player[0].HP;
+            MaxMana = Player[0].Mana;
+
             MatrixFeltoltese();
             SzobaGeneralasa();
             MatrixMegjelenitese();
@@ -39,6 +47,8 @@ namespace DnSZ
 
             AtlatszosagAllito(totemPBox, pictureBox1);
             AtlatszosagAllito(chestPBox, pictureBox1);
+        
+
         }
 
         private void SzobaMegjelenitese()
@@ -85,6 +95,28 @@ namespace DnSZ
             else
             {
                 AjtoFel.Visible = false;
+            }
+
+
+
+            if (matrix[JelelegiHelyYPlayer, JelelegiHelyXPlayer] == 2)
+            {
+                chestPBox.Visible = true;
+            }
+            else
+            {
+                chestPBox.Visible = false;
+
+            }
+
+            if (JelelegiHelyYPlayer == utolsoSzobaY && JelelegiHelyXPlayer == utolsoSzobaX)
+            {
+                totemPBox.Visible = true;
+            }
+            else
+            {
+                totemPBox.Visible = false;
+
             }
         }
 
@@ -292,7 +324,7 @@ namespace DnSZ
             MatrixMegjelenitese();
             SzobaMegjelenitese();
         }
-
+        Random rd2 = new Random();
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W && MehetFel){
@@ -315,10 +347,38 @@ namespace DnSZ
             Rectangle plKepernyoBounds = PL.RectangleToScreen(PL.ClientRectangle);
             Rectangle chestKepernyoBounds = chestPBox.RectangleToScreen(chestPBox.ClientRectangle);
 
+           
             //Összehasonlítjuk a globális koordinátákat, ÉS megnézzük, hogy a láda egyáltalán látható-e
             if (plKepernyoBounds.IntersectsWith(chestKepernyoBounds) && e.KeyCode == Keys.E && chestPBox.Visible)
             {
-                MessageBox.Show("Kinyitottad a ládát! Találtál egy gyógyító potiont!");
+
+                if(rd2.Next(0,3) == 1)
+                {
+                    if(rd2.Next(0, 4) == 1)
+                    {
+                        Player[0].HPPoti = Player[0].HPPoti + 2;
+                    }
+                    else
+                    {
+                        Player[0].HPPoti++;
+                    }
+                }
+                else
+                {
+                    if (rd2.Next(0, 4) == 1)
+                    {
+                        Player[0].ManaPoti = Player[0].ManaPoti + 2;
+                    }
+                    else
+                    {
+                        Player[0].ManaPoti++;
+                    }
+                }
+                chestPBox.Visible = false;
+
+
+
+
             }
 
             Rectangle plKepernyoBounds2 = PL.RectangleToScreen(PL.ClientRectangle);
@@ -327,7 +387,12 @@ namespace DnSZ
 
             if (plKepernyoBounds2.IntersectsWith(totemKepernyoBounds2) && e.KeyCode == Keys.E && totemPBox.Visible)
             {
-                MessageBox.Show("Harc");
+
+                FileIO.Mentes(Player, MaxHp, MaxMana);
+                Fight jatekstart = new Fight();
+                this.Hide();
+                jatekstart.ShowDialog();
+                this.Show();
             }
         }
 
@@ -415,25 +480,7 @@ namespace DnSZ
                 PL.Location = new Point(554, 82);
             }
 
-            if (matrix[JelelegiHelyYPlayer, JelelegiHelyXPlayer] == 2)
-            {
-                chestPBox.Visible = true;
-            }
-            else
-            {
-                chestPBox.Visible = false;
-
-            }
-
-            if (JelelegiHelyYPlayer == utolsoSzobaY && JelelegiHelyXPlayer == utolsoSzobaX)
-            {
-                totemPBox.Visible = true;
-            }
-            else
-            {
-                totemPBox.Visible = false;
-
-            }
+    
 
         
         }

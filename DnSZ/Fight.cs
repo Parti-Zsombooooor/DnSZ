@@ -31,6 +31,7 @@ namespace DnSZ
             Player = FileIO.Beolvasas(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.txt"));
             Enemy = FileIO.BeolvasasE(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Enemy.txt"));
 
+
             MaxHp = Player[0].HP;
             MaxMana = Player[0].Mana;
             MaxHpE = Enemy[0].HP;
@@ -38,6 +39,7 @@ namespace DnSZ
             Kezdes();
         }
 
+        Random Random = new Random();
         private void Kezdes()
         {
             MenuLBOX.Items.Clear();
@@ -47,6 +49,11 @@ namespace DnSZ
             MenuLBOX.Focus();
             ellenfelLBOX.Visible = false;
             this.ControlBox = true;
+
+
+            List<string> szornyekKepekLista = new List<string> { "Varazslo", "Vampir", "Denever", "Boszorkany"};
+            Enemy[0].Nev = szornyekKepekLista[Random.Next(0, szornyekKepekLista.Count)];
+
 
             PlayerPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", "Player.png"));
             EnemyPBOX.Image = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Properties", $"{Enemy[0].Nev}.png"));
@@ -207,6 +214,7 @@ namespace DnSZ
                 {
                     Player[0].XP -= FejlodeshezSzuksegesXP;
                     Player[0].Lvl++;
+                    Player[0].HP += 2;
                     SzerzettSzint++;
                     FejlodeshezSzuksegesXP = 10 + (Player[0].Lvl * 5);
                 }
@@ -282,7 +290,7 @@ namespace DnSZ
         }
         private int DmgSzamlaloE(int erosseg)
         {
-            double utes = Math.Round(Enemy[0].LVL * 0.2 + erosseg * 0.9, 0);
+            double utes = Math.Round(Player[0].Lvl * 0.2 + erosseg * 0.9, 0);
             return Convert.ToInt32(utes);
         }
 
